@@ -1,0 +1,122 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+.title{
+  font-family: "Arial";
+  font-size: 2.4;
+  color: #3b2f2f;;
+}
+
+.subtitle{
+  font-family: "Arial";
+  font-style: italic;
+  color: #6b5744;
+}
+
+h1 {
+  border-bottom: 2px solid #9b7e5a;
+  padding-bottom: 4px;
+  color: #3b2f2f;
+  margin-left: auto;
+  display:block;
+}
+
+
+p {
+  line-height: 1.75;
+  max-width: 800px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+}
+img {
+  border: 3px solid #9b7e5a;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+}
+```
+
+# Dynamic Report of Phone Users on AT buses
+*This report analyses the usage of mobile devices on public transport around Auckland(primarily AT).*
+
+The data collected included categorical variables for measuring time of data collection as well as nature of the days(Weekdays or Weekends) that the data was collected in. Numerical variables was also collected in proportions to identify phone users in the public transport.
+```{r}
+# -Loading libraries------------------------------------------------------------------------------
+library(magick)
+library(tidyverse)
+
+# -Importing CSV file and configuring for use-----------------------------------------------------
+# Importing CSV and setting to variable logged_data
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vSUC04OdqkByKtoLhiOpbvoyzK17XSsSuEJY2pzDWmv-W71In0ZaZWVGkx2f3buUVVrWScmtoXqQjeR/pub?output=csv")
+# Renaming columns in variable logged_data and creating new data frame = latest_data
+latest_data <- logged_data %>% 
+  rename(
+    "Day_Type"                  = "Are you taking the bus on a weekday or weekend?",
+    "Time_of_Day"               = "What is the time of day?", 
+    "Proportion_of_phone_users" = "Of the people you can currently see around you, what proportion of people are using a mobile device? Remember to include yourself in this calculation! (e.g. 0.4, 0.78)")
+
+#-Calculating Summary Values----------------------------------------------------------------------
+#Maximum value of phone users
+max_proportion_phone_users <- latest_data$"Proportion_of_phone_users" %>% max(na.rm = TRUE)
+#Minimum value of phone users
+min_proportion_phone_users <- latest_data$"Proportion_of_phone_users" %>% min(na.rm = TRUE)
+#Mean value of phone users
+mean_proportion_phone_users <- latest_data$"Proportion_of_phone_users" %>% mean(na.rm = TRUE)
+# Rounding mean value to 2 decimal places
+mean_proportion_phone_users <- round(mean_proportion_phone_users, 2)
+
+#-Creating relevant bar graphs with corresponding information ----------------------------------
+# Bar Graph comparing Time of Day and the Type of Day
+Comparision_Bar_graph <- ggplot(data = latest_data) +
+  geom_bar(aes(y = Time_of_Day, fill = Day_Type)) + 
+  labs(
+    title     = "Human Migration Patterns (Are people actually awake before \n 9??)", 
+    subtitle  = "Comparing Time of Day and the Type of Day(Weekend or Weekday) of observational \n\ data entries in Auckland Transport", 
+    caption   = "Source: Google Sheets",
+    x         = "Number of entries", 
+    y         = "Time of Day")
+
+# Rounding data for proportion values to present a cleaner graph
+latest_data$Proportion_of_phone_users <- round(latest_data$Proportion_of_phone_users,1)
+
+# Bar Graph listing proportion of phone users during bus rides
+Proportion_Bar_graph <- ggplot(data = latest_data) +
+  geom_bar(aes(x=Proportion_of_phone_users), fill="#60695C") + 
+  labs(
+    title    = "Nobody looked out the window", 
+    subtitle = "Proportion of commuters on the bus using their mobile devices (1 decimal place)", 
+    caption  = "Source: Google Sheets",
+    x        = "Proportion of phone users", 
+    y        = "Number")
+
+```
+The statistical graph below identifies the proportion of phone users during bus rides
+
+```{r}
+Proportion_Bar_graph
+```
+
+*Note: The above graph rounds the value of proportions to 1 decimal place for ease of understanding and may not reflect the exact value*
+
+
+The mean value of `r mean_proportion_phone_users` highlights that on average `r mean_proportion_phone_users * 100`% of public transport commuters use their phones on a bus.
+The maximum value noted in our observation study showed a proportion of `r max_proportion_phone_users` highlighting `r max_proportion_phone_users * 100`% of commuters during said observation, while our minimum value of `r min_proportion_phone_users` highlight our lowest proportion of `r min_proportion_phone_users * 100`% of phone users.
+
+```{r}
+Comparision_Bar_graph
+```
+
+The above bar graph compares the time of day as well as the nature of the date(Weekdays or Weekends) that the data was collected in.
+
+*The above graph provides a comprehensive view of the data collected to highlight plausible inaccuracies and fallacies.*

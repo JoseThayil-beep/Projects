@@ -1,0 +1,52 @@
+---
+title: "Project 2"
+subtitle: "STATS 220 Semester One, 2026"
+author: "Jose Jomy Thayil"
+date: "2026-03-30"
+output: 
+  html_document:
+    code_folding: hide
+---
+## Introduction
+
+The focus of my data collection for Stats220 Project 2, was the usage of mobile devices along buses conducted by Auckland Transport, primarily around the northern Auckland region.
+
+Guideline 1 of designing forms is Communication of our purpose to our respondents. To adequately meet this guideline, We provided a clear title and description of our form, including details of how the data will be used(Mentioning it's usage in this Stats220 project). We also let our respondents know in the description about all the data that will be collected(their form responses alongside their date and time of submission). Finally, we provide an email address if the respondents sought to seek any queries about the usage of the data and our purpose.
+
+Three sets of data were collected - The nature of the day(Weekday vs Weekend), Time of Day that the bus journey took place and the proportion of phone users visible to the respondents. The data collected from this observational study primarily allows us to study the usage of mobile devices on the bus, and also link that data with the time of bus rides to analyse if there were any changes to phone usage due to time of day. The proportion answer would allow us to estimate what percentage of commuters in the bus would be using their phones.
+
+### *Link to observational study:*
+[Responder link to observational study](https://docs.google.com/forms/d/e/1FAIpQLSckuBcLoZO_KihH3wBOMLupqjU1a7XtJpRil9Pijoec2KocZw/viewform?usp=header)
+
+Form design and data collection for this project were completed as a group. My group members were myself, Adrien Lydford and Guile Mohinani.
+
+
+## Dynamic report
+
+[Link to Dynamic Report](https://josethayil-beep.github.io/stats220/)
+
+## Creativity
+
+I employed creativity in primarily 2 ways. I initially added additional information to the the description of the survey - example: "Remember to include yourselves in the calculations of proportions of phone users" to conduct a more accurate observational study. The structure of the form's question - "Note people around you" - of only noting people that you can currently see around you also aids data collection as it would be less physically and socially taxing to note people around us than walk around the bus to note results.These extra statements would clean and standardize the results received, ensuring that there were reduced unsystemic discrepancies in data collection.
+
+I also used the round function in R-studio when creating my graph of proportions to round all my data to 1 d.p. and therefore produce a cleaner graph easier to understand.(Primarily as some respondents answered to 2 d.p. (0.54) and others to only 1 d.p. Rounding these results allowed a cleaner graph that was easier to understand. To round the correct column I also employed the R-function "$" to pull the correct column and round data.
+
+Also cleaned up presentation of data in the RMD, using inline r-coding and simple mathematical formulas 'r max_proportion_phone_users * 100`% to present data in a more understandable and informative way to the average user.
+
+## Learning reflection
+
+The hosting of live dynamic web pages using Github(allowing students to create our own websites) is definitely an important and cool feature that I was able to learn in this module. Secondly creation of dynamic web-pages by setting the text shown in the webpage as variables rather than fixed constants adds a more human and alive feel to coding. Ever updating - Living in the present.
+
+I am definitely curious about learning the advanced R-functions that effectively built the software I see around myself in daily life. Instagram is a very dynamic app and learning the basics of creating dynamic information definitely makes me excited for future lessons.
+
+Communication in our group could have been better as we primarily formed our group for ease of collecting required number of data. However editing and forming the surveys were primarily done individually and I feel with better communication we could have created a more accurate and reliable result.
+
+
+## Appendix
+
+```{r file='exploration.R', eval=FALSE, echo=TRUE}
+
+```
+```{r file='dynamic_report.Rmd', eval=FALSE, echo=TRUE}
+
+```
