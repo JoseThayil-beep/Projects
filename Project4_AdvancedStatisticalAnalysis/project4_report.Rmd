@@ -1,0 +1,74 @@
+---
+title: "Project 4"
+author: "Jose Thayil"
+date: "13th May 2026"
+output:
+  html_document:
+    code_folding: show
+---
+
+```{css, echo=FALSE}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #f9f6f1;
+  color: #2c2c2c;
+}
+
+h1, h2, h3 {
+  font-family: 'Arial', sans-serif;
+}
+
+h2 {
+  color: #51087E;
+  border-left: 5px solid #534AB7;
+  padding-left: 12px;
+  border-top: 15px;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.75;
+  max-width: 780px;
+}
+
+```
+
+
+## Introduction
+
+
+For this project, my data collection focused on tracking phone users on public transports, to measure how many people were glued to their devices. Specifically I measured number of people using mobile devices on the bus within a google form to create a dataset to capture patterns and trends across 2 weeks(primarily the last 3 days. Thanks **Adrien Lydford**!!!)
+
+Sadly no new questions/forms have been added, I know heartbreaking in interest of time and not failing Project 4.
+
+Data was collected as a group, with me, Adrien, Guile each contributing observations Each of us recorded entries using the shared Google Form whenever we used the public transport.
+
+When creating the data visualisations for this project, I focused primarily on proportions of phone users because they offered a clear cut story I could write about - How no one looked out the windows. I chose geom_col(coz its a better bar graph) to analyze counts across various times of day, geom_density to analyze density of proportions along various times and box plots to measure the distribution of proportions over specific days(using lubridate). Ultimately, I prioritised clarity and visual appeal with a specific colour scheme, making sure each chart had appropriate labels, a descriptive title, and beautiful data representation.
+
+---
+
+## Visual data story
+
+You can view my visual data story here: [Project 4 Visual Data Story](https://josethayil-beep.github.io/stats220/visual_data_story.html)
+
+My visual data story demonstrates creativity in several ways. Firstly, I follow the colour scheme specified for my bar graphs to ensure the readability and visual appeal of my graphs, Enhances visual coherence and makes it more engaging. Second, the bar graphs and wording of my visual story(*Nobody looks out the window*) knit together a story of the lack of window watching throughout bus rides. Additionally, I dabbled in CSS to make a clean output that reads well and looks visually appealing to its users.
+
+Oooh, and for my bar graph when renaming the variables I really really wanted to use case_when as it makes the job a lot simpler. However, as my team member already beat me to the race and created a bar chart(with the same data), using case_when - I had to use regex functions and oh did it look so beautiful when complete.
+
+---
+
+## Learning reflection
+
+One important idea I learned from Module 4 is actually putting the aes(x =) in the ggplot() and not the geom_bar(). I'm so serious I did this wrong for so long and it was so hard to learn.
+But adapting data frames to your data to create a visual plot was really cool and really nice and I enjoyed making such graphs. Filtering categories, summarising data, arranging, splicing and dicing was really fun and cool to learn. 
+Oooh and fill() for ggplot() to colour the graphs and make it visually appealing and actually soulful than a drab gray was really fun and cool.
+Was it manual_scale_fill(). I like that.
+
+
+---
+
+## Appendix
+
+```{r file='data_visualisation.R', eval=FALSE, echo=TRUE}
+```
