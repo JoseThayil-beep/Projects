@@ -1,0 +1,61 @@
+# R-specific files
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+
+# RStudio project files
+*.Rproj.user/
+*.Rproj.user
+*.Rproj
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Output and cache files
+.cache/
+cache/
+*.cache
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Credentials and sensitive data
+.Rprofile
+.env
+config.R
+credentials.R
+
+# Package-specific
+packrat/
+renv/
+
+# Output files to optionally ignore (customize as needed)
+# *.html  # Uncomment if you don't want to track HTML files
+# *.pdf   # Uncomment if you don't want to track PDF files
+
+# Data files (customize based on your needs)
+# *.csv   # Uncomment if you don't want to track CSV files
+# *.xlsx  # Uncomment if you don't want to track Excel files
+
+# Plot/image outputs
+plots/
+figures/
+*.png
+*.jpg
+*.jpeg
+
+# Large data files
+*.zip
+*.tar.gz
+*.7z
